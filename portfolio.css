@@ -215,6 +215,21 @@
   border-color: var(--accent-primary);
 }
 
+/* Badge para projetos com repositório privado (trabalhos profissionais).
+   Usa cursor padrão e cores neutras para indicar que não é clicável. */
+.private-badge {
+  color: var(--text-muted);
+  border-color: var(--border-color);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: default;
+  font-style: italic;
+}
+
+.private-badge:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-color);
+}
+
 /* =============================================
    CARD ESPECIAL - PERFIL GITHUB
    ============================================= */
