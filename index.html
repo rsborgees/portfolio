@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!-- 
+  =============================================
+  PORTFÓLIO - Rafaella Sá de Souza Borges
+  Arquivo: index.html
+  Página: Sobre Mim
+  Descrição: Página inicial com apresentação pessoal,
+             hobbies e informações gerais.
+  =============================================
+-->
+<html lang="pt-BR">
+
+<head>
+  <!-- Codificação de caracteres para suporte a acentos e caracteres especiais -->
+  <meta charset="UTF-8" />
+
+  <!-- Configuração para responsividade em dispositivos móveis -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título exibido na aba do navegador e em resultados de busca -->
+  <title>Rafaella Borges | Portfólio</title>
+
+  <!-- Meta description para SEO -->
+  <meta name="description"
+    content="Portfólio pessoal de Rafaella Sá de Souza Borges, estudante de Engenharia de Software. Conheça minha formação, projetos e formas de contato." />
+
+  <!-- Open Graph (para compartilhamento em redes sociais) -->
+  <meta property="og:title" content="Rafaella Borges | Portfólio" />
+  <meta property="og:description" content="Estudante de Engenharia de Software apaixonada por tecnologia." />
+  <meta property="og:type" content="website" />
+
+  <!-- Estilos globais compartilhados -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Estilos específicos desta página -->
+  <link rel="stylesheet" href="sobre.css" />
+</head>
+
+<body>
+
+  <!-- =============================================
+       NAVBAR - Menu de navegação fixo no topo
+       Aparece em TODAS as páginas.
+       Links levam para páginas separadas (não âncoras).
+       ============================================= -->
+  <nav class="navbar" role="navigation" aria-label="Menu principal">
+
+    <!-- Nome/Logo: leva de volta à página inicial -->
+    <a href="index.html" class="navbar-brand" aria-label="Ir para página inicial">
+      Rafaella<span style="opacity:0.5">.</span>dev
+    </a>
+
+    <!-- Lista de links de navegação -->
+    <ul class="navbar-menu" id="nav-menu" role="list">
+      <li><a href="index.html" aria-label="Sobre mim">Sobre mim</a></li>
+      <li><a href="formacao.html" aria-label="Formação">Formação</a></li>
+      <li><a href="portfolio.html" aria-label="Portfólio">Portfólio</a></li>
+      <li><a href="contato.html" aria-label="Contato">Contato</a></li>
+    </ul>
+
+    <!-- Controles: botão de tema e hamburguer -->
+    <div class="navbar-controls">
+      <!-- Botão alternância de tema dark/light -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro"
+        title="Alternar tema">🌙</button>
+
+      <!-- Botão hamburguer (visível apenas no mobile) -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false"
+        aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- =============================================
+       CONTEÚDO PRINCIPAL DA PÁGINA
+       ============================================= -->
+  <main>
+
+    <!-- === SEÇÃO HERO: Apresentação principal === -->
+    <section class="hero-section" aria-label="Apresentação">
+      <div class="container">
+        <div class="hero-grid">
+
+          <!-- Coluna de texto -->
+          <div class="hero-content animate-in">
+
+            <!-- Saudação inicial -->
+            <p class="hero-greeting">Olá, seja bem-vindo(a)!</p>
+
+            <!-- Nome principal em destaque -->
+            <h1 class="hero-name">Rafaella Borges</h1>
+
+            <!-- Título/cargo -->
+            <p class="hero-role">Estudante de Engenharia de Software</p>
+
+            <!-- Bio curta -->
+            <p class="hero-bio">
+              Apaixonada por tecnologia, desenvolvimento de software e resolução
+              de problemas. Atualmente cursando Engenharia de Software e buscando
+              uma oportunidade na área de tecnologia. 🚀
+            </p>
+
+            <!-- Botões de ação -->
+            <div class="hero-actions">
+              <a href="portfolio.html" class="btn btn-primary" id="btn-ver-portfolio">
+                🗂 Ver Portfólio
+              </a>
+              <a href="contato.html" class="btn btn-secondary" id="btn-contato">
+                ✉️ Entrar em contato
+              </a>
+            </div>
+
+          </div><!-- fim hero-content -->
+
+          <!-- Coluna do avatar -->
+          <div class="hero-avatar-wrapper animate-in">
+            <!-- Anel giratório decorativo com gradiente -->
+            <div class="hero-avatar-ring" aria-hidden="true">
+              <div class="hero-avatar-inner">
+                <!-- Ícone/emoji representando a desenvolvedora -->
+                <span class="hero-avatar-icon" role="img" aria-label="Desenvolvedora">👩‍💻</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- fim hero-grid -->
+
+        <!-- Cards de estatísticas rápidas -->
+        <div class="stats-grid" role="region" aria-label="Estatísticas">
+          <div class="stat-card animate-in">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Projetos Concluídos</div>
+          </div>
+          <div class="stat-card animate-in">
+            <div class="stat-number">2º</div>
+            <div class="stat-label">Semestre Cursando</div>
+          </div>
+          <div class="stat-card animate-in">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Idiomas</div>
+          </div>
+        </div>
+
+      </div><!-- fim container -->
+    </section>
+
+    <!-- === SEÇÃO SOBRE MIM: Detalhes pessoais === -->
+    <section class="about-section" id="sobre" aria-label="Sobre mim">
+      <div class="container">
+
+        <!-- Divisor decorativo -->
+        <div class="section-divider">
+          <span>Sobre mim</span>
+        </div>
+
+        <div class="about-grid">
+
+          <!-- Card de informações pessoais -->
+          <div class="card animate-in">
+            <h2 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 1.25rem;">
+              📋 Informações Pessoais
+            </h2>
+
+            <!-- Cada item de informação com ícone -->
+            <div class="info-item">
+              <span class="info-icon">👩</span>
+              <div>
+                <span class="info-label">Nome completo</span>
+                <span class="info-value">Rafaella Sá de Souza Borges</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="info-icon">🎓</span>
+              <div>
+                <span class="info-label">Curso</span>
+                <span class="info-value">Engenharia de Software — UNINTER</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <div>
+                <span class="info-label">Localização</span>
+                <span class="info-value">Salvador, Bahia</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="info-icon">🌐</span>
+              <div>
+                <span class="info-label">GitHub</span>
+                <span class="info-value">
+                  <a href="https://github.com/rsborgees" target="_blank" rel="noopener noreferrer"
+                    style="color: var(--accent-primary); text-decoration: none;">
+                    github.com/rsborgees
+                  </a>
+                </span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <span class="info-icon">💼</span>
+              <div>
+                <span class="info-label">Status</span>
+                <span class="info-value" style="color: #22c55e;">🟢 Aberta a oportunidades</span>
+              </div>
+            </div>
+
+          </div><!-- fim card informações -->
+
+          <!-- Card de hobbies -->
+          <div class="animate-in">
+            <h2 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 1.25rem;">
+              🎯 Hobbies & Interesses
+            </h2>
+
+            <!-- Grade 2x2 de hobbies -->
+            <div class="hobbies-grid">
+
+              <div class="hobby-card" role="listitem">
+                <span class="hobby-emoji" aria-hidden="true">🎵</span>
+                <span class="hobby-name">Música</span>
+              </div>
+
+              <div class="hobby-card" role="listitem">
+                <span class="hobby-emoji" aria-hidden="true">🎮</span>
+                <span class="hobby-name">Jogos</span>
+              </div>
+
+              <div class="hobby-card" role="listitem">
+                <span class="hobby-emoji" aria-hidden="true">🍳</span>
+                <span class="hobby-name">Culinária</span>
+              </div>
+
+              <div class="hobby-card" role="listitem">
+                <span class="hobby-emoji" aria-hidden="true">💻</span>
+                <span class="hobby-name">Tecnologia</span>
+              </div>
+
+            </div><!-- fim hobbies-grid -->
+
+            <!-- Pequeno texto descritivo -->
+            <div class="card" style="margin-top: 1rem;">
+              <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
+                Além da programação, sou apaixonada por música, toco violão e guitarra nas horas vagas.
+                Adoro explorar novos jogos e cozinhar receitas.
+                Acredito que criatividade e tecnologia andam lado a lado!
+              </p>
+            </div>
+
+          </div><!-- fim card hobbies -->
+
+        </div><!-- fim about-grid -->
+
+        <!-- Tags de habilidades em destaque -->
+        <div style="margin-top: 2rem;" class="animate-in">
+          <p
+            style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem;">
+            Tecnologias que estou aprendendo
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Lógica de Programação</span>
+            <span class="tag">UI/UX Design</span>
+          </div>
+        </div>
+
+      </div><!-- fim container -->
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       FOOTER - Rodapé com links e créditos
+       ============================================= -->
+  <footer role="contentinfo">
+    <p>
+      Desenvolvido por
+      <a href="https://github.com/rsborgees" target="_blank" rel="noopener noreferrer">
+        Rafaella Borges
+      </a>
+      &nbsp;·&nbsp;
+      Engenharia de Software — UNINTER &nbsp;·&nbsp;
+    </p>
+  </footer>
+
+  <!-- Script compartilhado (tema, menu, animações) -->
+  <script src="main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,345 @@
+/* =============================================
+   ESTILOS ESPECÍFICOS: contato.html
+   Arquivo: contato.css
+   Descrição: Formulário de contato, validação visual,
+               modal de confirmação e cards de info
+   ============================================= */
+
+/* =============================================
+   LAYOUT DA PÁGINA DE CONTATO
+   ============================================= */
+.contact-section {
+  padding: 2rem 0 4rem;
+}
+
+/* Grid: formulário à esquerda, info à direita */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+/* =============================================
+   FORMULÁRIO DE CONTATO
+   ============================================= */
+.contact-form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.contact-form-card h2 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.contact-form-card .form-intro {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Grupo de campo: label + input */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+/* Label do campo */
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.5rem;
+}
+
+/* Campos de input e textarea */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: all var(--transition);
+  outline: none;
+  resize: none;
+}
+
+/* Foco no input */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  background: var(--bg-card);
+}
+
+/* Placeholder */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Estado de erro (aplicado via JS) */
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* Estado de sucesso (aplicado via JS) */
+.form-group input.success,
+.form-group textarea.success {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+/* Mensagem de erro inline */
+.field-error {
+  display: none; /* oculto por padrão, exibido via JS */
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Quando deve ser exibido */
+.field-error.visible {
+  display: flex;
+}
+
+/* Contador de caracteres para textarea */
+.char-counter {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+.char-counter.warning {
+  color: #fbbf24;
+}
+
+/* Botão de envio */
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animação de carregamento no botão */
+.btn-submit.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.btn-submit.loading::after {
+  content: '';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* =============================================
+   CARDS DE INFORMAÇÕES DE CONTATO
+   ============================================= */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all var(--transition);
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-info-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateX(4px);
+}
+
+/* Ícone do card de info */
+.contact-info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(124, 106, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.contact-info-text h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.contact-info-text p {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Card de disponibilidade (verde) */
+.availability-card {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.25);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.availability-card:hover {
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.availability-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse-green 2s infinite;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+}
+
+.availability-text h4 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #22c55e;
+  margin-bottom: 0.2rem;
+}
+
+.availability-text p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+/* =============================================
+   MODAL DE CONFIRMAÇÃO DE ENVIO
+   ============================================= */
+
+/* Overlay escuro por trás do modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+}
+
+/* Quando o modal está aberto (classe adicionada via JS) */
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Caixa do modal */
+.modal-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  transform: scale(0.9) translateY(20px);
+  transition: transform var(--transition);
+}
+
+.modal-overlay.open .modal-box {
+  transform: scale(1) translateY(0);
+}
+
+/* Ícone de sucesso */
+.modal-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+}
+
+@keyframes bounceIn {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.modal-message {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+/* =============================================
+   RESPONSIVIDADE - Contato
+   ============================================= */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    order: -1; /* Info fica acima do formulário no mobile */
+  }
+}

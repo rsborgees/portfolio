@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!-- 
+  =============================================
+  PORTFÓLIO - Rafaella Sá de Souza Borges
+  Arquivo: formacao.html
+  Página: Formação Acadêmica
+  Descrição: Linha do tempo de formação, habilidades
+             técnicas com barras animadas e idiomas.
+  =============================================
+-->
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título específico desta página -->
+  <title>Formação | Rafaella Borges</title>
+
+  <!-- Meta description para SEO -->
+  <meta name="description"
+    content="Formação acadêmica de Rafaella Sá de Souza Borges: cursos, habilidades técnicas e idiomas." />
+
+  <!-- Estilos globais -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Estilos desta página -->
+  <link rel="stylesheet" href="formacao.css" />
+</head>
+
+<body>
+
+  <!-- =============================================
+       NAVBAR - Idêntica em todas as páginas
+       ============================================= -->
+  <nav class="navbar" role="navigation" aria-label="Menu principal">
+
+    <a href="index.html" class="navbar-brand" aria-label="Ir para página inicial">
+      Rafaella<span style="opacity:0.5">.</span>dev
+    </a>
+
+    <ul class="navbar-menu" id="nav-menu" role="list">
+      <li><a href="index.html">Sobre mim</a></li>
+      <li><a href="formacao.html">Formação</a></li>
+      <li><a href="portfolio.html">Portfólio</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+
+    <div class="navbar-controls">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema claro/escuro">🌙</button>
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <main>
+
+    <!-- === CABEÇALHO DA PÁGINA === -->
+    <header class="page-hero" role="banner">
+      <div class="container">
+        <!-- Badge decorativo acima do título -->
+        <div class="page-badge">📚 Minha Trajetória</div>
+
+        <!-- Título principal da página (único h1 por página) -->
+        <h1 class="page-title">
+          Formação <span class="highlight">Acadêmica</span>
+        </h1>
+
+        <p class="page-subtitle">
+          Minha jornada de aprendizado em tecnologia e desenvolvimento de software.
+        </p>
+      </div>
+    </header>
+
+    <!-- === CONTEÚDO PRINCIPAL: Formação === -->
+    <section class="formacao-section" aria-label="Formação acadêmica">
+      <div class="container">
+
+        <!-- =====================
+             LINHA DO TEMPO
+             ==================== -->
+        <h2 style="font-family: var(--font-heading); font-size: 1.2rem; 
+                   color: var(--text-secondary); margin-bottom: 1.5rem;">
+          🎓 Trajetória Educacional
+        </h2>
+
+        <!-- Timeline com marcadores e datas -->
+        <div class="timeline" role="list">
+
+          <!-- Item 1: Formação atual -->
+          <div class="timeline-item animate-in" role="listitem">
+            <!-- Marcador circular na linha vertical -->
+            <div class="timeline-dot" aria-hidden="true"></div>
+
+            <div class="card">
+              <!-- Período: exibido em cor de destaque -->
+              <p class="timeline-period">2026 – Cursando</p>
+
+              <!-- Nome do curso -->
+              <h3 class="timeline-title">Engenharia de Software</h3>
+
+              <!-- Nome da instituição -->
+              <p class="timeline-institution">🏗 Centro Universitário Internacional — UNINTER</p>
+
+              <!-- Descrição do curso -->
+              <p class="timeline-description">
+                Bacharel em Engenharia de Software com foco em desenvolvimento de sistemas,
+                qualidade de software, arquitetura de aplicações e gestão de projetos ágeis.
+                Atualmente no 2º semestre, aprofundando conhecimentos em programação web,
+                fundamentos de programação e banco de dados.
+              </p>
+
+              <!-- Tags de matérias cursadas -->
+              <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tag">Programação Web</span>
+                <span class="tag">Lógica de Programação</span>
+                <span class="tag">Banco de Dados</span>
+                <span class="tag">Engenharia de Requisitos</span>
+              </div>
+            </div>
+          </div><!-- fim timeline-item 1 -->
+
+          <!-- Item 2: Ensino Médio -->
+          <div class="timeline-item animate-in" role="listitem">
+            <div class="timeline-dot" aria-hidden="true"></div>
+
+            <div class="card">
+              <p class="timeline-period">Concluído — 2024</p>
+              <h3 class="timeline-title">Ensino Médio</h3>
+              <p class="timeline-institution">🏫 Colégio Pirâmide</p>
+              <p class="timeline-description">
+                Conclusão do Ensino Médio regular.
+              </p>
+            </div>
+          </div><!-- fim timeline-item 2 -->
+
+        </div><!-- fim timeline -->
+
+        <!-- =====================
+             HABILIDADES TÉCNICAS
+             Barras de progresso animadas via JS
+             ==================== -->
+        <div class="skills-section" aria-label="Habilidades técnicas">
+          <div class="skills-header">
+            <h2>⚡ Habilidades Técnicas</h2>
+          </div>
+
+          <!-- Grade 2 colunas de barras de habilidade -->
+          <div class="skills-grid">
+
+            <!-- HTML5: cada skill-fill tem data-width com o valor final -->
+            <div class="skill-item animate-in">
+              <div class="skill-header">
+                <span class="skill-name">🌐 HTML5</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                aria-label="HTML5: 85%">
+                <div class="skill-fill" data-width="85"></div>
+              </div>
+            </div>
+
+            <!-- CSS3 -->
+            <div class="skill-item animate-in">
+              <div class="skill-header">
+                <span class="skill-name">🎨 CSS3</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                aria-label="CSS3: 80%">
+                <div class="skill-fill" data-width="80"></div>
+              </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="skill-item animate-in">
+              <div class="skill-header">
+                <span class="skill-name">⚙️ JavaScript</span>
+                <span class="skill-percent">65%</span>
+              </div>
+              <div class="skill-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+                aria-label="JavaScript: 65%">
+                <div class="skill-fill" data-width="65"></div>
+              </div>
+            </div>
+
+            <!-- Python -->
+            <div class="skill-item animate-in">
+              <div class="skill-header">
+                <span class="skill-name">🐍 Python</span>
+                <span class="skill-percent">60%</span>
+              </div>
+              <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Python: 60%">
+                <div class="skill-fill" data-width="60"></div>
+              </div>
+            </div>
+
+            <!-- Git & GitHub -->
+            <div class="skill-item animate-in">
+              <div class="skill-header">
+                <span class="skill-name">🔧 Git & GitHub</span>
+                <span class="skill-percent">70%</span>
+              </div>
+              <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Git: 70%">
+                <div class="skill-fill" data-width="70"></div>
+              </div>
+            </div>
+
+            <!-- Lógica de Programação -->
+            <div class="skill-item animate-in">
+              <div class="skill-header">
+                <span class="skill-name">🧠 Lógica de Programação</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Lógica: 75%">
+                <div class="skill-fill" data-width="75"></div>
+              </div>
+            </div>
+
+          </div><!-- fim skills-grid -->
+        </div><!-- fim skills-section -->
+
+        <!-- =====================
+             IDIOMAS
+             Cards com bandeiras e estrelas de nível
+             ==================== -->
+        <div class="languages-section" aria-label="Idiomas">
+          <h2 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.5rem;">
+            🌍 Idiomas
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">
+            Idiomas que falo e meu nível em cada um.
+          </p>
+
+          <!-- Grade de 3 colunas de cards de idioma -->
+          <div class="languages-grid">
+
+            <!-- Português -->
+            <div class="language-card animate-in">
+              <span class="language-flag" role="img" aria-label="Bandeira do Brasil">🇧🇷</span>
+              <h3 class="language-name">Português</h3>
+              <p class="language-level">Nativo</p>
+              <!-- 5 estrelas preenchidas = fluente -->
+              <div class="language-stars" aria-label="Nível: 5 de 5">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+
+            <!-- Inglês -->
+            <div class="language-card animate-in">
+              <span class="language-flag" role="img" aria-label="Bandeira dos EUA">🇺🇸</span>
+              <h3 class="language-name">Inglês</h3>
+              <p class="language-level">Avançado (C1)</p>
+              <!-- 4 estrelas = avançado -->
+              <div class="language-stars" aria-label="Nível: 4 de 5">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star empty">★</span>
+              </div>
+            </div>
+
+            <!-- Espanhol -->
+            <div class="language-card animate-in">
+              <span class="language-flag" role="img" aria-label="Bandeira da Espanha">🇪🇸</span>
+              <h3 class="language-name">Espanhol</h3>
+              <p class="language-level">Intermediário (B1)</p>
+              <!-- 3 estrelas = intermediário -->
+              <div class="language-stars" aria-label="Nível: 3 de 5">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star empty">★</span>
+                <span class="star empty">★</span>
+              </div>
+            </div>
+
+          </div><!-- fim languages-grid -->
+        </div><!-- fim languages-section -->
+
+        <!-- fim cursos removidos: não há cursos complementares a exibir no momento -->
+
+      </div><!-- fim container -->
+    </section>
+
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer role="contentinfo">
+    <p>
+      Desenvolvido com ❤️ por
+      <a href="https://github.com/rsborgees" target="_blank" rel="noopener noreferrer">
+        Rafaella Borges
+      </a>
+      &nbsp;·&nbsp; Engenharia de Software — UNINTER &nbsp;·&nbsp; 2026
+    </p>
+  </footer>
+
+  <!-- Scripts: primeiro o compartilhado, depois o específico -->
+  <script src="main.js"></script>
+  <script src="formacao.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!-- 
+  =============================================
+  PORTFÓLIO - Rafaella Sá de Souza Borges
+  Arquivo: contato.html
+  Página: Contato
+  Descrição: Formulário de contato com validação
+             JavaScript e modal de confirmação.
+  =============================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato | Rafaella Borges</title>
+  <meta name="description" content="Entre em contato com Rafaella Sá de Souza Borges. Formulário de contato com validação." />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="contato.css" />
+</head>
+
+<body>
+
+  <!-- =============================================
+       NAVBAR - Idêntica em todas as páginas
+       ============================================= -->
+  <nav class="navbar" role="navigation" aria-label="Menu principal">
+
+    <a href="index.html" class="navbar-brand" aria-label="Ir para página inicial">
+      Rafaella<span style="opacity:0.5">.</span>dev
+    </a>
+
+    <ul class="navbar-menu" id="nav-menu" role="list">
+      <li><a href="index.html">Sobre mim</a></li>
+      <li><a href="formacao.html">Formação</a></li>
+      <li><a href="portfolio.html">Portfólio</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+
+    <div class="navbar-controls">
+      <button class="theme-toggle" id="theme-toggle" 
+              aria-label="Alternar tema claro/escuro">🌙</button>
+      <button class="hamburger" id="hamburger-btn" 
+              aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <main>
+
+    <!-- === CABEÇALHO DA PÁGINA === -->
+    <header class="page-hero" role="banner">
+      <div class="container">
+        <div class="page-badge">✉️ Fale comigo</div>
+
+        <!-- Único h1 da página -->
+        <h1 class="page-title">
+          Entre em <span class="highlight">Contato</span>
+        </h1>
+
+        <p class="page-subtitle">
+          Tem um projeto em mente ou quer apenas dizer olá? 
+          Adoraria ouvir de você! 😊
+        </p>
+      </div>
+    </header>
+
+    <!-- === CONTEÚDO PRINCIPAL: Formulário + Info === -->
+    <section class="contact-section" aria-label="Seção de contato">
+      <div class="container">
+
+        <!-- Grid: formulário (esquerda) + info (direita) -->
+        <div class="contact-grid">
+
+          <!-- =====================
+               FORMULÁRIO DE CONTATO
+               Validação feita em contato.js
+               ==================== -->
+          <div class="contact-form-card animate-in">
+            <h2>Enviar mensagem</h2>
+            <p class="form-intro">
+              Preencha o formulário abaixo e entrarei em contato em breve!
+            </p>
+
+            <!--
+              Formulário com id="contact-form" referenciado em contato.js
+              action="#" e method="post" são necessários para semântica HTML,
+              mas o envio real é interceptado pelo JavaScript (event.preventDefault).
+            -->
+            <form id="contact-form" action="#" method="post" novalidate 
+                  aria-label="Formulário de contato">
+
+              <!-- Campo: Nome -->
+              <div class="form-group">
+                <label for="nome">Nome completo *</label>
+                <input 
+                  type="text" 
+                  id="nome" 
+                  name="nome"
+                  placeholder="Seu nome completo"
+                  autocomplete="name"
+                  maxlength="100"
+                  required
+                  aria-required="true"
+                  aria-describedby="nome-error"
+                />
+                <!-- Mensagem de erro — controlada via JS -->
+                <span class="field-error" id="nome-error" role="alert" aria-live="polite"></span>
+              </div><!-- fim form-group nome -->
+
+              <!-- Campo: E-mail -->
+              <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email"
+                  placeholder="seu@email.com"
+                  autocomplete="email"
+                  maxlength="150"
+                  required
+                  aria-required="true"
+                  aria-describedby="email-error"
+                />
+                <span class="field-error" id="email-error" role="alert" aria-live="polite"></span>
+              </div><!-- fim form-group email -->
+
+              <!-- Campo: Assunto -->
+              <div class="form-group">
+                <label for="assunto">Assunto *</label>
+                <input 
+                  type="text" 
+                  id="assunto" 
+                  name="assunto"
+                  placeholder="Sobre o que deseja falar?"
+                  maxlength="150"
+                  required
+                  aria-required="true"
+                  aria-describedby="assunto-error"
+                />
+                <span class="field-error" id="assunto-error" role="alert" aria-live="polite"></span>
+              </div><!-- fim form-group assunto -->
+
+              <!-- Campo: Mensagem -->
+              <div class="form-group">
+                <label for="mensagem">Mensagem *</label>
+                <textarea 
+                  id="mensagem" 
+                  name="mensagem"
+                  placeholder="Escreva sua mensagem aqui..."
+                  rows="5"
+                  maxlength="500"
+                  required
+                  aria-required="true"
+                  aria-describedby="mensagem-error mensagem-counter"
+                ></textarea>
+                <span class="field-error" id="mensagem-error" role="alert" aria-live="polite"></span>
+
+                <!-- Contador de caracteres atualizado via JS -->
+                <div class="char-counter" id="mensagem-counter" aria-live="polite">
+                  <span id="char-count">0</span>/500 caracteres
+                </div>
+              </div><!-- fim form-group mensagem -->
+
+              <!-- Botão de envio -->
+              <button 
+                type="submit" 
+                id="submit-btn" 
+                class="btn btn-primary btn-submit"
+                aria-label="Enviar mensagem de contato">
+                ✉️ Enviar Mensagem
+              </button>
+
+            </form><!-- fim form -->
+          </div><!-- fim contact-form-card -->
+
+          <!-- =====================
+               INFORMAÇÕES DE CONTATO
+               Cards com ícones e dados de contato
+               ==================== -->
+          <div class="contact-info animate-in" role="complementary" aria-label="Outras formas de contato">
+
+            <!-- GitHub -->
+            <a href="https://github.com/rsborgees" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="contact-info-card"
+               aria-label="Acessar GitHub de Rafaella Borges">
+              <div class="contact-info-icon" aria-hidden="true">🐙</div>
+              <div class="contact-info-text">
+                <h4>GitHub</h4>
+                <p>github.com/rsborgees</p>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/rafaella-borges-ab176037b/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="contact-info-card"
+               aria-label="Acessar LinkedIn">
+              <div class="contact-info-icon" aria-hidden="true">💼</div>
+              <div class="contact-info-text">
+                <h4>LinkedIn</h4>
+                <p>linkedin.com/in/rafaella-borges-ab176037b</p>
+              </div>
+            </a>
+
+            <!-- Localização -->
+            <div class="contact-info-card" style="cursor: default;">
+              <div class="contact-info-icon" aria-hidden="true">📍</div>
+              <div class="contact-info-text">
+                <h4>Localização</h4>
+                <p>Salvador, Bahia 🇧🇷</p>
+              </div>
+            </div>
+
+            <!-- Disponibilidade (com animação de pulso verde) -->
+            <div class="availability-card" role="status" aria-label="Status de disponibilidade">
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                <div class="availability-dot" aria-hidden="true"></div>
+                <div class="availability-text">
+                  <h4>Disponível para oportunidades</h4>
+                  <p>
+                    Atualmente buscando estágio ou 
+                    oportunidade júnior em desenvolvimento.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div><!-- fim contact-info -->
+
+        </div><!-- fim contact-grid -->
+
+      </div><!-- fim container -->
+    </section>
+
+  </main>
+
+  <!-- Rodapé padrão -->
+  <footer role="contentinfo">
+    <p>
+      Desenvolvido com ❤️ por 
+      <a href="https://github.com/rsborgees" target="_blank" rel="noopener noreferrer">
+        Rafaella Borges
+      </a>
+      &nbsp;·&nbsp; Engenharia de Software — UNINTER &nbsp;·&nbsp; 2026
+    </p>
+  </footer>
+
+  <!-- =============================================
+       MODAL DE CONFIRMAÇÃO DE ENVIO
+       Oculto por padrão; exibido via JavaScript
+       após o envio bem-sucedido do formulário.
+       ============================================= -->
+  <div class="modal-overlay" 
+       id="modal-overlay" 
+       role="dialog" 
+       aria-modal="true"
+       aria-labelledby="modal-title"
+       aria-describedby="modal-description">
+
+    <div class="modal-box">
+      <!-- Ícone de sucesso com animação bounce -->
+      <div class="modal-icon" aria-hidden="true">🎉</div>
+
+      <!-- Título do modal -->
+      <h2 class="modal-title" id="modal-title">Mensagem enviada!</h2>
+
+      <!-- Mensagem de confirmação -->
+      <p class="modal-message" id="modal-description">
+        Obrigada pelo contato! Sua mensagem foi recebida com sucesso. 
+        Entrarei em contato em breve. 😊
+      </p>
+
+      <!-- Botão para fechar o modal -->
+      <button class="btn btn-primary" 
+              id="modal-close" 
+              style="width: 100%;"
+              aria-label="Fechar janela de confirmação">
+        Perfeito! ✨
+      </button>
+    </div>
+
+  </div><!-- fim modal-overlay -->
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script src="contato.js"></script>
+
+</body>
+</html>
