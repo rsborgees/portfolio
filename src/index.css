@@ -49,6 +49,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* offset anchor jumps below fixed navbar */
+  scroll-padding-top: 72px;
 }
 
 body {
@@ -460,4 +462,35 @@ h1, h2, h3, h4 {
   border-radius: 99px;
   width: 0;
   transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============================================
+   ONE-PAGE SECTION LAYOUT
+   ============================================= */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero: extra top padding for fixed navbar */
+.hero-section {
+  padding-top: 9rem;
+  padding-bottom: 5rem;
+  position: relative;
+}
+
+/* Other sections */
+.about-full-section,
+.portfolio-section-full,
+.formacao-section-full {
+  padding: 5rem 0;
+  position: relative;
+}
+
+/* Mobile: reduce section padding */
+@media (max-width: 768px) {
+  .hero-section { padding-top: 7rem; padding-bottom: 3rem; }
+  .about-full-section,
+  .portfolio-section-full,
+  .formacao-section-full { padding: 3.5rem 0; }
 }

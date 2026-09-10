@@ -1,28 +1,24 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Portfolio from './pages/Portfolio';
-import Formacao from './pages/Formacao';
 
-function AnimatedRoutes() {
-  const location = useLocation();
-  return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/formacao" element={<Formacao />} />
-      </Routes>
-    </AnimatePresence>
-  );
-}
+import Hero from './sections/Hero';
+import About from './sections/About';
+import Portfolio from './sections/Portfolio';
+import Formacao from './sections/Formacao';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import './index.css';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <>
+      <div className="bg-mesh" />
       <Navbar />
-      <AnimatedRoutes />
-    </BrowserRouter>
+      <main>
+        <Hero />
+        <About />
+        <Portfolio />
+        <Formacao />
+      </main>
+      <Footer />
+    </>
   );
 }
