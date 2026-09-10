@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { projects, categories } from '../data/projects';
 import '../pages/Portfolio.css';
 
+const vp = { once: true, amount: 0 };
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.45, delay: i * 0.06 } }),

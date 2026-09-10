@@ -41,19 +41,24 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Avatar */}
+          {/* Decorative card */}
           <motion.div
-            className="hero-avatar-wrapper"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            className="hero-deco-wrapper"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <div className="hero-avatar-ring">
-              <div className="hero-avatar-inner">
-                <span className="hero-avatar-icon" role="img" aria-label="Desenvolvedora">👩‍💻</span>
+            <div className="hero-deco-card">
+              <div className="hero-deco-glow" />
+              <div className="hero-monogram">RB</div>
+              <div className="hero-deco-info">
+                <span className="deco-tag">💼 Full Stack Dev</span>
+                <span className="deco-tag">📍 Salvador, BA</span>
+                <span className="deco-tag deco-tag-green">🟢 Disponível</span>
               </div>
             </div>
           </motion.div>
+
         </div>
 
         {/* Stats */}

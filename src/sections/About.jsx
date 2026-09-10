@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import '../pages/Home.css';
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.1 } }),
+  hidden: { opacity: 0, y: 24 },
+  visible: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.08 } }),
 };
 
 const services = [
@@ -22,6 +22,8 @@ const stack = [
   { icon: '📦', name: 'APIs REST' }, { icon: '🚀', name: 'Vite' },
 ];
 
+const vp = { once: true, amount: 0 };
+
 export default function About() {
   return (
     <section id="sobre" className="about-full-section">
@@ -30,7 +32,7 @@ export default function About() {
         {/* ── Sobre Mim ── */}
         <div className="section-divider"><span>Sobre mim</span></div>
         <div className="about-grid">
-          <motion.div className="card" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+          <motion.div className="card" initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp}>
             <h2 className="about-card-title">📋 Informações</h2>
             {[
               { icon: '👩', label: 'Nome', val: 'Rafaella Sá de Souza Borges' },
@@ -48,7 +50,7 @@ export default function About() {
             ))}
           </motion.div>
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}>
+          <motion.div initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp} custom={1}>
             <h2 className="about-card-title">🎯 O que posso fazer por você</h2>
             <p className="about-text">
               Sou desenvolvedora especializada em criar soluções digitais que realmente
@@ -80,8 +82,8 @@ export default function About() {
               key={i}
               className="service-card"
               style={{ '--card-color': s.color, '--card-border': s.border }}
-              initial="hidden" whileInView="visible" viewport={{ once: true }}
-              variants={fadeUp} custom={i * 0.5}
+              initial="hidden" whileInView="visible" viewport={vp}
+              variants={fadeUp} custom={i}
               whileHover={{ y: -6 }}
             >
               <span className="service-icon">{s.icon}</span>
@@ -97,7 +99,7 @@ export default function About() {
           {stack.map((t, i) => (
             <motion.div
               key={i} className="stack-item"
-              initial="hidden" whileInView="visible" viewport={{ once: true }}
+              initial="hidden" whileInView="visible" viewport={vp}
               variants={fadeUp} custom={i * 0.3}
               whileHover={{ scale: 1.08, y: -4 }}
             >

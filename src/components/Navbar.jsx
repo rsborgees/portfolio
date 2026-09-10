@@ -15,9 +15,22 @@ export default function Navbar() {
 
   /* ── scroll shadow ── */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      // close mobile menu on scroll
+      if (menuOpen) setMenuOpen(false);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, [menuOpen]);
+
+  /* ── close menu on resize to desktop ── */
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 768) setMenuOpen(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   /* ── scroll-spy via IntersectionObserver ── */
@@ -30,7 +43,7 @@ export default function Navbar() {
       if (!el) return;
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActive(`#${id}`); },
-        { rootMargin: '-40% 0px -55% 0px' }
+        { rootMargin: '-10% 0px -85% 0px' }
       );
       obs.observe(el);
       observers.push(obs);
@@ -48,48 +61,59 @@ export default function Navbar() {
   }
 
   return (
-    <nav className={`navbar${scrolled ? ' scrolled' : ''}`} aria-label="Menu principal">
-      <a
-        href="#inicio"
-        className="navbar-brand"
-        onClick={e => handleClick(e, '#inicio')}
-      >
-        Rafaella<span>.</span>dev
-      </a>
+    <>
+      {/* Mobile overlay */}
+      {menuOpen && (
+        <div
+          className="nav-overlay"
+          onClick={() => setMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
-      <ul className={`navbar-menu${menuOpen ? ' open' : ''}`}>
-        {links.map(link => (
-          <li key={link.href}>
-            <a
-              href={link.href}
-              className={active === link.href ? 'active' : ''}
-              onClick={e => handleClick(e, link.href)}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      <div className="navbar-cta">
+      <nav className={`navbar${scrolled ? ' scrolled' : ''}`} aria-label="Menu principal">
         <a
-          href="https://www.linkedin.com/in/rafaella-borges-ab176037b/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary"
+          href="#inicio"
+          className="navbar-brand"
+          onClick={e => handleClick(e, '#inicio')}
         >
-          💼 LinkedIn
+          Rafaella<span>.</span>dev
         </a>
-      </div>
 
-      <button
-        className={`hamburger${menuOpen ? ' open' : ''}`}
-        onClick={() => setMenuOpen(v => !v)}
-        aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-        aria-expanded={menuOpen}
-      >
-        <span /><span /><span />
-      </button>
-    </nav>
+        <ul className={`navbar-menu${menuOpen ? ' open' : ''}`}>
+          {links.map(link => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className={active === link.href ? 'active' : ''}
+                onClick={e => handleClick(e, link.href)}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="navbar-cta">
+          <a
+            href="https://www.linkedin.com/in/rafaella-borges-ab176037b/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            💼 LinkedIn
+          </a>
+        </div>
+
+        <button
+          className={`hamburger${menuOpen ? ' open' : ''}`}
+          onClick={() => setMenuOpen(v => !v)}
+          aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={menuOpen}
+        >
+          <span /><span /><span />
+        </button>
+      </nav>
+    </>
   );
 }
